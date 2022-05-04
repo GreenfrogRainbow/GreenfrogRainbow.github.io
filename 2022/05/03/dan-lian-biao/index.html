@@ -4,12 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="first_day_Data_Structure, SmallFrog">
-    <meta name="description" content="基本概念和术语
-1)数据
-数据（Data）是信息的载体，是可以被计算机识别，存储并加工处理的描述客观事物的信息符号的总称。数据不仅仅包括了整形，浮点数等数值类型，还包括了字符甚至声音，视频，图像等非数值的类型。
-2)数据元素
-数据元素（Da">
+    <meta name="keywords" content="单链表, SmallFrog">
+    <meta name="description" content="单链表 C定义单链表结构体typedef struct Node{  
+    int data;  
+    struct Node *next;  
+}Node, *LinkedList;
+
+初始化LinkedList listinit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +24,7 @@
 
     
 
-    <title>first_day_Data_Structure | SmallFrog</title>
+    <title>单链表 | SmallFrog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -315,12 +316,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">first_day_Data_Structure</h1>
+                    <h1 class="description center-align post-title">单链表</h1>
                 </div>
             </div>
         </div>
@@ -473,23 +474,105 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>基本概念和术语</p>
-<p>1)数据</p>
-<p>数据（Data）是信息的载体，是可以被计算机识别，存储并加工处理的描述客观事物的信息符号的总称。数据不仅仅包括了整形，浮点数等数值类型，还包括了字符甚至声音，视频，图像等非数值的类型。</p>
-<p>2)数据元素</p>
-<p>数据元素（Data Element）是描述数据的基本单位，也被称为记录。一个数据元素有若干个数据项组成。</p>
-<p>如禽类，鸡鸭都属于禽类的数据元素。</p>
-<p>3)数据项</p>
-<p>数据项（Data Item）是描述数据的最小单位，其可以分为组合项和原子项：</p>
-<p>a)组合项</p>
-<p>如果数据元素可以再度分割，则每一个独立处理单元就是数据项，数据元素就是数据项的集合。</p>
-<p>b)原子项</p>
-<p>如果数据元素不能再度分割，则每一个独立处理的单元就是原子项。</p>
-<p>如日期2019年4月25日就是一个组合项，其表示日期，但如果单独拿25日这个数据出来观测，这就是一个原子项，因为其不可以再分割。</p>
-<p>4)数据对象</p>
-<p>数据对象（Data Object）是性质相同的一类数据元素的集合，是数据的一个子集。数据对象可以是有限的，也可以是无限的。</p>
-<p>5)数据结构</p>
-<p>数据结构（Data Structures）主要是指数据和关系的集合，数据指的是计算机中需要处理的数据，而关系指的是这些数据相关的前后逻辑，这些逻辑与计算机储存的位置无关，其主要包含以下四大逻辑结构。</p>
+                <h1 id="单链表-C"><a href="#单链表-C" class="headerlink" title="单链表 C"></a>单链表 C</h1><h3 id="定义单链表结构体"><a href="#定义单链表结构体" class="headerlink" title="定义单链表结构体"></a>定义单链表结构体</h3><pre class=" language-C语言"><code class="language-C语言">typedef struct Node{  
+    int data;  
+    struct Node *next;  
+}Node, *LinkedList;
+</code></pre>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre class=" language-C语言"><code class="language-C语言">LinkedList listinit(){  
+    Node *L;
+      L = (Node*)malloc(sizeof(Node));   
+    if(L == NULL){ 
+    printf("申请失败！");
+    }
+    L ->next = NULL;
+}
+</code></pre>
+<h3 id="创建单链表"><a href="#创建单链表" class="headerlink" title="创建单链表"></a>创建单链表</h3><h5 id="头插"><a href="#头插" class="headerlink" title="头插"></a>头插</h5><pre class=" language-C语言"><code class="language-C语言">LinkedList LinkedListCreatH(){
+    Node *L; //开个头 **头上无值**
+    L = (Node *) malloc(sizeof(Node));  //开辟空间！！
+    L ->next = NULL;  //确保最先读入的尾是NULL
+    
+    int x;
+    while(scanf("%d", &x)!=EOF){
+        Node *p;
+        p = (Node *)malloc(sizeof(Node));
+        p ->data = x;
+        p ->next = L->next;  
+        L ->next = p;  //尾插头上
+    }
+    return L;
+}
+</code></pre>
+<h5 id="尾插"><a href="#尾插" class="headerlink" title="尾插"></a>尾插</h5><pre class=" language-C语言"><code class="language-C语言">LinkedList LinkedListCreatT(){
+    Node *L;
+    L = (Node *) malloc(sizeof(Node));
+    L->next = NULL;
+    Node *r;
+    r = L;
+    int x;
+    while(scanf("%d",&x) != EOF){
+        Node *p;
+        p = (Node *)malloc(sizeof(Node));
+        p->data = x;
+        r->next = p;
+        r = p;
+    }
+    r->next = NULL;
+    return L;
+}
+</code></pre>
+<h3 id="遍历链表"><a href="#遍历链表" class="headerlink" title="遍历链表"></a>遍历链表</h3><pre class=" language-C语言"><code class="language-C语言">void printList(LinkedList L){
+    Node *p = L->next;
+    int i = 0;
+    while(p){
+        printf("The %dth is %d\n", ++i, p->data);
+        p = p->next;
+    }
+}
+</code></pre>
+<h3 id="修改某值的元素"><a href="#修改某值的元素" class="headerlink" title="修改某值的元素"></a>修改某值的元素</h3><pre class=" language-C语言"><code class="language-C语言">LinkedList LinkedListReplace(LinkedList L, int x, int k){
+    Node *p = L->next;  // 定义一个指针指向
+    while(p){
+        if(p->data == x){
+            p->data = k;
+        }
+        p = p->next;
+    }
+    return L;
+}
+</code></pre>
+<h3 id="在某位置插入新元素"><a href="#在某位置插入新元素" class="headerlink" title="在某位置插入新元素"></a>在某位置插入新元素</h3><pre class=" language-C语言"><code class="language-C语言">LinkedList LinkedListInsert(LinkedList L, int i, int x){
+    Node *pre;
+    pre = L;
+    int tempi = 0;
+    for(tempi = 1; tempi < i; tempi ++){
+        pre = pre->next;
+    }
+    Node *p;
+    p = (Node *)malloc(sizeof(Node));
+    p->data = x;
+    p->next = pre->next;
+    pre->next = p;
+    
+    return L;
+}
+</code></pre>
+<h3 id="删除某值元素"><a href="#删除某值元素" class="headerlink" title="删除某值元素"></a>删除某值元素</h3><pre class=" language-C语言"><code class="language-C语言">LinkedList LinkedListDel(LinkedList L, int x){
+    Node *p, *pre;
+    p = L->next;
+    
+    while(p->data != x){
+        pre = p;
+        p = p->next;
+    }
+    pre->next = p->next;
+    
+    free(p);
+    
+    return L;
+}
+</code></pre>
 
                 
             </div>
@@ -516,7 +599,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/05/03/first-day-data-structure/">http://example.com/2022/05/03/first-day-data-structure/</a>
+                    <a href="http://example.com/2022/05/03/dan-lian-biao/">http://example.com/2022/05/03/dan-lian-biao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -729,9 +812,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/05/03/dan-lian-biao/">
                     <div class="card-image">
@@ -749,9 +833,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -760,6 +844,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -778,13 +863,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/02/hello-world/">
+                <a href="/2022/05/03/first-day-data-structure/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="first_day_Data_Structure">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">first_day_Data_Structure</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -795,7 +880,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-03
                             </span>
                         <span class="publish-author">
                             
@@ -804,6 +889,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Data-structure/">
+                        <span class="chip bg-color">Data structure</span>
+                    </a>
+                    
                 </div>
                 
             </div>

@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>单链表</title>
+      <link href="/2022/05/03/dan-lian-biao/"/>
+      <url>/2022/05/03/dan-lian-biao/</url>
+      
+        <content type="html"><![CDATA[<h1 id="单链表-C"><a href="#单链表-C" class="headerlink" title="单链表 C"></a>单链表 C</h1><h3 id="定义单链表结构体"><a href="#定义单链表结构体" class="headerlink" title="定义单链表结构体"></a>定义单链表结构体</h3><pre class=" language-C语言"><code class="language-C语言">typedef struct Node{      int data;      struct Node *next;  }Node, *LinkedList;</code></pre><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre class=" language-C语言"><code class="language-C语言">LinkedList listinit(){      Node *L;      L = (Node*)malloc(sizeof(Node));       if(L == NULL){     printf("申请失败！");    }    L ->next = NULL;}</code></pre><h3 id="创建单链表"><a href="#创建单链表" class="headerlink" title="创建单链表"></a>创建单链表</h3><h5 id="头插"><a href="#头插" class="headerlink" title="头插"></a>头插</h5><pre class=" language-C语言"><code class="language-C语言">LinkedList LinkedListCreatH(){    Node *L; //开个头 **头上无值**    L = (Node *) malloc(sizeof(Node));  //开辟空间！！    L ->next = NULL;  //确保最先读入的尾是NULL        int x;    while(scanf("%d", &x)!=EOF){        Node *p;        p = (Node *)malloc(sizeof(Node));        p ->data = x;        p ->next = L->next;          L ->next = p;  //尾插头上    }    return L;}</code></pre><h5 id="尾插"><a href="#尾插" class="headerlink" title="尾插"></a>尾插</h5><pre class=" language-C语言"><code class="language-C语言">LinkedList LinkedListCreatT(){    Node *L;    L = (Node *) malloc(sizeof(Node));    L->next = NULL;    Node *r;    r = L;    int x;    while(scanf("%d",&x) != EOF){        Node *p;        p = (Node *)malloc(sizeof(Node));        p->data = x;        r->next = p;        r = p;    }    r->next = NULL;    return L;}</code></pre><h3 id="遍历链表"><a href="#遍历链表" class="headerlink" title="遍历链表"></a>遍历链表</h3><pre class=" language-C语言"><code class="language-C语言">void printList(LinkedList L){    Node *p = L->next;    int i = 0;    while(p){        printf("The %dth is %d\n", ++i, p->data);        p = p->next;    }}</code></pre><h3 id="修改某值的元素"><a href="#修改某值的元素" class="headerlink" title="修改某值的元素"></a>修改某值的元素</h3><pre class=" language-C语言"><code class="language-C语言">LinkedList LinkedListReplace(LinkedList L, int x, int k){    Node *p = L->next;  // 定义一个指针指向    while(p){        if(p->data == x){            p->data = k;        }        p = p->next;    }    return L;}</code></pre><h3 id="在某位置插入新元素"><a href="#在某位置插入新元素" class="headerlink" title="在某位置插入新元素"></a>在某位置插入新元素</h3><pre class=" language-C语言"><code class="language-C语言">LinkedList LinkedListInsert(LinkedList L, int i, int x){    Node *pre;    pre = L;    int tempi = 0;    for(tempi = 1; tempi < i; tempi ++){        pre = pre->next;    }    Node *p;    p = (Node *)malloc(sizeof(Node));    p->data = x;    p->next = pre->next;    pre->next = p;        return L;}</code></pre><h3 id="删除某值元素"><a href="#删除某值元素" class="headerlink" title="删除某值元素"></a>删除某值元素</h3><pre class=" language-C语言"><code class="language-C语言">LinkedList LinkedListDel(LinkedList L, int x){    Node *p, *pre;    p = L->next;        while(p->data != x){        pre = p;        p = p->next;    }    pre->next = p->next;        free(p);        return L;}</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Data structure </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>first_day_Data_Structure</title>
       <link href="/2022/05/03/first-day-data-structure/"/>
       <url>/2022/05/03/first-day-data-structure/</url>
