@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>双链表</title>
+      <link href="/2022/05/04/shuang-lian-biao/"/>
+      <url>/2022/05/04/shuang-lian-biao/</url>
+      
+        <content type="html"><![CDATA[<h1 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h1><h3 id="创建双链表结构体"><a href="#创建双链表结构体" class="headerlink" title="创建双链表结构体"></a>创建双链表结构体</h3><pre class=" language-C语言"><code class="language-C语言">typedef struct line{    int data;    struct line *pre; //指向前一个元素的指针    struct line *next;  //指向下一个元素的指针}line, *a;</code></pre><h3 id="创建双链表"><a href="#创建双链表" class="headerlink" title="创建双链表"></a>创建双链表</h3><pre class=" language-C语言"><code class="language-C语言">line* initLine(line * head){    int num, pos, input_data;    printf("输入创建节点的数量\n");    scanf("%d",&num);    if(num < 1) return NULL;    head = (line*) malloc(sizeof(line));    head->pre =NULL;    head->next = NULL;    printf("请输入第%d个数据\n", pos++);    scanf("%d",&input_data);    head->data = input_data; //头初始化        line * list = head; // 导入变量list 继续连接链表 保留head指针位置    while(pos <= num){        line * body = (line*)malloc(sizeof(line));        body->pre = NULL;        body->next = NULL;  // 创建body连接链表        printf("请输入第%d个数据\n",pos++);        scanf("%d",&input_data);        body->data = input_data;                list->next = body;  // 已存指向body        body->pre = list;  // body-pre指针指向已存        list = list->next;  // list定位到新元素    }    return head;}</code></pre><h3 id="双链表的元素插入"><a href="#双链表的元素插入" class="headerlink" title="双链表的元素插入"></a>双链表的元素插入</h3><pre class=" language-C语言"><code class="language-C语言">line * insertLine(line * head, int data, int add){    line * temp = (line *) malloc(sizeof(line));    temp->data = data;    temp->pre = NULL;    temp->next = NULL;    if(add == 1){        temp->next = head;          head->pre = temp;        head = temp;    }    else{        line * body = head;        for(int i = 0; i<add-1;i++){            body = body->next;        }        if(body->next ==NULL){  // 如果新元素是尾            body->next = temp;  //现存指向新元素temp            temp->pre = body;  //新元素指向NULL，        }else{  // 新元素在中间            body->next->pre = temp;  // 目标位置的下一个元素的pre指针指向temp            temp->next = body->next;  //temp 的next指针指向目标位置的下一个元素            body->next = temp; // 目标位置的next指针指向temp            temp->pre = body;  // temp的pre指针指向body        }    }    return head;}</code></pre><h3 id="目标元素的删除"><a href="#目标元素的删除" class="headerlink" title="目标元素的删除"></a>目标元素的删除</h3><pre class=" language-C语言"><code class="language-C语言">line * delLine(line * head, int data){    line * list = head;    while(list){        if(list->data == data){            list->pre->next = list->next;  // 目标前一个元素next指向目标下一个元素            list->next = list->pre;  // 目标下一个元素pre指向目标前一个元素            free(list);  // 释放空间            printf("删除成功~");            return head;        }        list = list->next;    }    printf("Error：没有目标元素");    return head;}</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Data structure </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>单链表</title>
       <link href="/2022/05/03/dan-lian-biao/"/>
       <url>/2022/05/03/dan-lian-biao/</url>
