@@ -4,16 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Easyx, SmallFrog">
-    <meta name="description" content="Easyx图形库#include&amp;lt;easyx.h&amp;gt;
-
-创建窗口HWND initgraph(
-    int width,
-    int height,
-    int flag = NULL
-);
-
-其中flag取值有：EW">
+    <meta name="keywords" content="安卓, SmallFrog">
+    <meta name="description" content="测试">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -27,7 +19,7 @@
 
     
 
-    <title>Easyx | SmallFrog</title>
+    <title>安卓 | SmallFrog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -319,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Easyx</h1>
+                    <h1 class="description center-align post-title">安卓</h1>
                 </div>
             </div>
         </div>
@@ -438,17 +430,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Easyx/">
-                                <span class="chip bg-color">Easyx</span>
-                            </a>
-                        
-                            <a href="/tags/c/">
-                                <span class="chip bg-color">c</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -460,7 +444,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-05
+                    2022-05-13
                 </div>
                 
 
@@ -481,105 +465,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Easyx"><a href="#Easyx" class="headerlink" title="Easyx"></a>Easyx</h1><h4 id="图形库"><a href="#图形库" class="headerlink" title="图形库"></a>图形库</h4><pre><code>#include&lt;easyx.h&gt;
-</code></pre>
-<h4 id="创建窗口"><a href="#创建窗口" class="headerlink" title="创建窗口"></a>创建窗口</h4><pre class=" language-C语言"><code class="language-C语言">HWND initgraph(
-    int width,
-    int height,
-    int flag = NULL
-);
-</code></pre>
-<p>其中flag取值有：<br>EW_DBLCLKS  在绘图窗口中支持鼠标双击事件。<br>EW_NOCLOSE	禁用绘图窗口的关闭按钮。<br>EW_NOMINIMIZE  禁用绘图窗口的最小化按钮。<br>EW_SHOWCONSOLE	显示控制台窗口。</p>
-<h4 id="清除绘图设备-（以背景色）"><a href="#清除绘图设备-（以背景色）" class="headerlink" title="清除绘图设备 （以背景色）"></a>清除绘图设备 （以背景色）</h4><pre class=" language-C语言"><code class="language-C语言">cleardevice();
-</code></pre>
-<h4 id="关闭窗口"><a href="#关闭窗口" class="headerlink" title="关闭窗口"></a>关闭窗口</h4><pre class=" language-C语言"><code class="language-C语言">closegraph();
-</code></pre>
-<h4 id="设置背景颜色"><a href="#设置背景颜色" class="headerlink" title="设置背景颜色"></a>设置背景颜色</h4><p>在设置背景色之后，并不会改变现有背景色，而是只改变背景色的值，之后再执行绘图语句，例如 outtextxy，会使用新设置的背景色值。<br>如果需要修改全部背景色，可以在设置背景色后执行 cleardevice() 函数。</p>
-<pre class=" language-C语言"><code class="language-C语言">void setbkcolor(COLORREF color);
-</code></pre>
-<h4 id="绘制一个简单de图形"><a href="#绘制一个简单de图形" class="headerlink" title="绘制一个简单de图形"></a>绘制一个简单de图形</h4><pre class=" language-C语言"><code class="language-C语言">// 设置边和填充格式
-setfillcolor(YELLOW);
-setlinecolor(GREEN);
-setlinestyle(PS_SOLID, 5);
-// 绘制圆
-circle(50, 50, 50);  // 无填充的圆
-fillcircle(150, 150, 50);  // 有边框的填充圆
-solidcircle(250, 250, 50);  // 无边框的填充圆
-</code></pre>
-<h4 id="绘制文字"><a href="#绘制文字" class="headerlink" title="绘制文字"></a>绘制文字</h4><pre class=" language-C语言"><code class="language-C语言">settextstyle(50, 0, "等线 Light");
-settextcolor(RGB(117, 101, 235));
-// 设置背景模式  transparent (文字“透明”)
-setbkmode(TRANSPARENT);
-outtextxy(250, 250, "Helloworld");
-//outtextxy(400, 400, TEXT("Helloworld"));
-</code></pre>
-<pre class=" language-C语言"><code class="language-C语言">// 文字输出有多种情况
-// 输出字符串（MBCS 字符集）
-char s[] = "Hello World";
-outtextxy(10, 20, s);
-// 输出字符串（Unicode 字符集）
-wchar_t s[] = L"Hello World";
-outtextxy(10, 20, s);
-// 输出字符串（自适应字符集）
-TCHAR s[] = _T("Hello World");
-outtextxy(10, 20, s);
-// 输出字符（MBCS 字符集）
-char c = 'A';
-outtextxy(10, 40, c);
-// 输出字符（自适应字符集）
-TCHAR c = _T('A');
-outtextxy(10, 40, c);
-// 输出数值，先将数字格式化输出为字符串（MBCS 字符集）
-char s[5];
-sprintf(s, "%d", 1024);
-outtextxy(10, 60, s);
-// 输出数值 1024，先将数字格式化输出为字符串（自适应字符集）
-TCHAR s[5];
-_stprintf(s, _T("%d"), 1024);		// 高版本 VC 推荐使用 _stprintf_s 函数
-outtextxy(10, 60, s);
-</code></pre>
-<ul>
-<li>文字zai一个矩阵居中显示</li>
-</ul>
-<pre class=" language-C语言"><code class="language-C语言">fillrectangle(200, 50, 800, 100); // 绘制一个矩阵
-settextcolor(RGB(169, 1, 1));
-char text_arr[] = "我是居中显示的文字";
-// 简单计算
-int x = 200 + 300 - textwidth(text_arr)/2;
-int y = textheight(text_arr);
-outtextxy(x, 50, text_arr);
-</code></pre>
-<h4 id="图片-填充ing"><a href="#图片-填充ing" class="headerlink" title="图片 (填充ing)"></a>图片 (填充ing)</h4><pre class=" language-C语言"><code class="language-C语言">IMAGE img1; // 定义一个图片变量
-// 加载图片
-loadimage(&img1, "./IMG1.jpg");
-putimage(0, 0, &img1);
-</code></pre>
-<h4 id="鼠标操作"><a href="#鼠标操作" class="headerlink" title="鼠标操作"></a>鼠标操作</h4><pre class=" language-C语言"><code class="language-C语言">while(1){
-    if (MouseHit()) {
-        // cleardevice();
-        // 定义按键变量
-        MOUSEMSG msg = GetMouseMsg();
-
-        // 记录鼠标位置
-        // printf("坐标（%d, %d）", msg.x, msg.y);
-
-        // 判断鼠标点击位置 
-        if (msg.x > 200 && msg.y > 50 && msg.x < 800 && msg.y < 100) {
-            printf("Hello easyx\n");
-            printf("坐标（%d, %d）\n", msg.x, msg.y);
-        }
-        switch (msg.uMsg) {
-        case WM_LBUTTONDOWN:
-            outtextxy(400, 400, "鼠标左键按下");
-            break;
-        case WM_RBUTTONDOWN:
-            outtextxy(400, 400, "鼠标右键按下");
-            break;
-        }
-    }
-}
-</code></pre>
-
+                <h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4>
                 
             </div>
             <hr/>
@@ -605,7 +491,7 @@ putimage(0, 0, &img1);
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/05/05/easyx/">http://example.com/2022/05/05/easyx/</a>
+                    <a href="http://example.com/2022/05/13/an-zhuo/">http://example.com/2022/05/13/an-zhuo/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -642,15 +528,7 @@ putimage(0, 0, &img1);
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Easyx/">
-                                    <span class="chip bg-color">Easyx</span>
-                                </a>
-                            
-                                <a href="/tags/c/">
-                                    <span class="chip bg-color">c</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -826,13 +704,13 @@ putimage(0, 0, &img1);
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/05/13/an-zhuo/">
+                <a href="/2022/08/21/android-database/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="安卓">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Android_Database">
                         
-                        <span class="card-title">安卓</span>
+                        <span class="card-title">Android_Database</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -843,7 +721,7 @@ putimage(0, 0, &img1);
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-13
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-21
                         </span>
                         <span class="publish-author">
                             
@@ -863,13 +741,13 @@ putimage(0, 0, &img1);
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/04/shuang-lian-biao/">
+                <a href="/2022/05/05/easyx/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="双链表">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Easyx">
                         
-                        <span class="card-title">双链表</span>
+                        <span class="card-title">Easyx</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -880,7 +758,7 @@ putimage(0, 0, &img1);
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-05
                             </span>
                         <span class="publish-author">
                             
@@ -893,8 +771,12 @@ putimage(0, 0, &img1);
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Data-structure/">
-                        <span class="chip bg-color">Data structure</span>
+                    <a href="/tags/Easyx/">
+                        <span class="chip bg-color">Easyx</span>
+                    </a>
+                    
+                    <a href="/tags/c/">
+                        <span class="chip bg-color">c</span>
                     </a>
                     
                 </div>

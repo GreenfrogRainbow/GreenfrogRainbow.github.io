@@ -4,16 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Easyx, SmallFrog">
-    <meta name="description" content="Easyx图形库#include&amp;lt;easyx.h&amp;gt;
-
-创建窗口HWND initgraph(
-    int width,
-    int height,
-    int flag = NULL
-);
-
-其中flag取值有：EW">
+    <meta name="keywords" content="Android_Database, SmallFrog">
+    <meta name="description" content="数据储存——持久化技术一、SharedPreferences储存获取SharedPreferences对象
+1.Content类中的getSharedPreferences()方法接受两个参数：第一个参数用于指定SharedPreferen">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -27,7 +20,7 @@
 
     
 
-    <title>Easyx | SmallFrog</title>
+    <title>Android_Database | SmallFrog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -319,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Easyx</h1>
+                    <h1 class="description center-align post-title">Android_Database</h1>
                 </div>
             </div>
         </div>
@@ -438,17 +431,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Easyx/">
-                                <span class="chip bg-color">Easyx</span>
-                            </a>
-                        
-                            <a href="/tags/c/">
-                                <span class="chip bg-color">c</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -460,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-05
+                    2022-08-21
                 </div>
                 
 
@@ -481,104 +466,236 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Easyx"><a href="#Easyx" class="headerlink" title="Easyx"></a>Easyx</h1><h4 id="图形库"><a href="#图形库" class="headerlink" title="图形库"></a>图形库</h4><pre><code>#include&lt;easyx.h&gt;
-</code></pre>
-<h4 id="创建窗口"><a href="#创建窗口" class="headerlink" title="创建窗口"></a>创建窗口</h4><pre class=" language-C语言"><code class="language-C语言">HWND initgraph(
-    int width,
-    int height,
-    int flag = NULL
-);
-</code></pre>
-<p>其中flag取值有：<br>EW_DBLCLKS  在绘图窗口中支持鼠标双击事件。<br>EW_NOCLOSE	禁用绘图窗口的关闭按钮。<br>EW_NOMINIMIZE  禁用绘图窗口的最小化按钮。<br>EW_SHOWCONSOLE	显示控制台窗口。</p>
-<h4 id="清除绘图设备-（以背景色）"><a href="#清除绘图设备-（以背景色）" class="headerlink" title="清除绘图设备 （以背景色）"></a>清除绘图设备 （以背景色）</h4><pre class=" language-C语言"><code class="language-C语言">cleardevice();
-</code></pre>
-<h4 id="关闭窗口"><a href="#关闭窗口" class="headerlink" title="关闭窗口"></a>关闭窗口</h4><pre class=" language-C语言"><code class="language-C语言">closegraph();
-</code></pre>
-<h4 id="设置背景颜色"><a href="#设置背景颜色" class="headerlink" title="设置背景颜色"></a>设置背景颜色</h4><p>在设置背景色之后，并不会改变现有背景色，而是只改变背景色的值，之后再执行绘图语句，例如 outtextxy，会使用新设置的背景色值。<br>如果需要修改全部背景色，可以在设置背景色后执行 cleardevice() 函数。</p>
-<pre class=" language-C语言"><code class="language-C语言">void setbkcolor(COLORREF color);
-</code></pre>
-<h4 id="绘制一个简单de图形"><a href="#绘制一个简单de图形" class="headerlink" title="绘制一个简单de图形"></a>绘制一个简单de图形</h4><pre class=" language-C语言"><code class="language-C语言">// 设置边和填充格式
-setfillcolor(YELLOW);
-setlinecolor(GREEN);
-setlinestyle(PS_SOLID, 5);
-// 绘制圆
-circle(50, 50, 50);  // 无填充的圆
-fillcircle(150, 150, 50);  // 有边框的填充圆
-solidcircle(250, 250, 50);  // 无边框的填充圆
-</code></pre>
-<h4 id="绘制文字"><a href="#绘制文字" class="headerlink" title="绘制文字"></a>绘制文字</h4><pre class=" language-C语言"><code class="language-C语言">settextstyle(50, 0, "等线 Light");
-settextcolor(RGB(117, 101, 235));
-// 设置背景模式  transparent (文字“透明”)
-setbkmode(TRANSPARENT);
-outtextxy(250, 250, "Helloworld");
-//outtextxy(400, 400, TEXT("Helloworld"));
-</code></pre>
-<pre class=" language-C语言"><code class="language-C语言">// 文字输出有多种情况
-// 输出字符串（MBCS 字符集）
-char s[] = "Hello World";
-outtextxy(10, 20, s);
-// 输出字符串（Unicode 字符集）
-wchar_t s[] = L"Hello World";
-outtextxy(10, 20, s);
-// 输出字符串（自适应字符集）
-TCHAR s[] = _T("Hello World");
-outtextxy(10, 20, s);
-// 输出字符（MBCS 字符集）
-char c = 'A';
-outtextxy(10, 40, c);
-// 输出字符（自适应字符集）
-TCHAR c = _T('A');
-outtextxy(10, 40, c);
-// 输出数值，先将数字格式化输出为字符串（MBCS 字符集）
-char s[5];
-sprintf(s, "%d", 1024);
-outtextxy(10, 60, s);
-// 输出数值 1024，先将数字格式化输出为字符串（自适应字符集）
-TCHAR s[5];
-_stprintf(s, _T("%d"), 1024);		// 高版本 VC 推荐使用 _stprintf_s 函数
-outtextxy(10, 60, s);
-</code></pre>
-<ul>
-<li>文字zai一个矩阵居中显示</li>
+                <h1 id="数据储存——持久化技术"><a href="#数据储存——持久化技术" class="headerlink" title="数据储存——持久化技术"></a>数据储存——持久化技术</h1><h2 id="一、SharedPreferences储存"><a href="#一、SharedPreferences储存" class="headerlink" title="一、SharedPreferences储存"></a>一、SharedPreferences储存</h2><h4 id="获取SharedPreferences对象"><a href="#获取SharedPreferences对象" class="headerlink" title="获取SharedPreferences对象"></a>获取SharedPreferences对象</h4><ul>
+<li><p>1.Content类中的getSharedPreferences()方法<br>接受两个参数：第一个参数用于指定SharedPreferences文件的名称，如果指定的文件不存在就会自动创建。SharedPreferences文件都是存放在/data/data/&lt;包名&gt;/shared_prefs/目录下的。第二个参数用于指定操作模式虽然目前只有MODE_PRIVATE这一种模式可选，表示对sharedPreferences文件进行读写。</p>
+</li>
+<li><p>2.Activity类中getPreferences()方法<br>与上面Content中的方法类似，但是他只接受操作模式，默认把当前活动的类名作为SharedPreferences的文件名。</p>
+</li>
+<li><p>3.PreferenceManager类中的getDefaultSharedPreferences()方法<br>静态方法，只接受Context参数，并自动使用当前应用程序的包名作为前缀明明SharedPreferences文件，得到SharedPreferences对象后，就开始向文件中存储数据了。<br>(1).调用SharedPreferences对象的edit()方法获取一个SharedPreferences.Editor对象。<br>(2).向SharedPreferences.Editor对象中添加数据，比如添加一个布尔型数据就是用putBoolean()方法，添加字符串使用purSting(),以此类推。<br>(3).调用apply()方法将添加的数据提交，从而完成数据储存操作。</p>
+</li>
 </ul>
-<pre class=" language-C语言"><code class="language-C语言">fillrectangle(200, 50, 800, 100); // 绘制一个矩阵
-settextcolor(RGB(169, 1, 1));
-char text_arr[] = "我是居中显示的文字";
-// 简单计算
-int x = 200 + 300 - textwidth(text_arr)/2;
-int y = textheight(text_arr);
-outtextxy(x, 50, text_arr);
+<pre class=" language-Java"><code class="language-Java">SharedPreferences.Editor editor = getSharedPreferences("data", MODE_PRIVATE).edit();
+editor.putString("name", "Tom");
+editor.putInt("age", 28);
+editor.putBoolean("married", false);
+editor.apply();
 </code></pre>
-<h4 id="图片-填充ing"><a href="#图片-填充ing" class="headerlink" title="图片 (填充ing)"></a>图片 (填充ing)</h4><pre class=" language-C语言"><code class="language-C语言">IMAGE img1; // 定义一个图片变量
-// 加载图片
-loadimage(&img1, "./IMG1.jpg");
-putimage(0, 0, &img1);
+<h4 id="从SharedPreferences中读取数据"><a href="#从SharedPreferences中读取数据" class="headerlink" title="从SharedPreferences中读取数据"></a>从SharedPreferences中读取数据</h4><p>使用SharedPreferens对象的各个get方法即可</p>
+<pre class=" language-Java"><code class="language-Java">SharedPreferences pred = getSharedPreferences("data", MODE_PRIVATE);
+String name = pred.getString("name", "");
+int age = pred.getInt("age", 0);
+boolean married = pred.getBoolean("married", false);
+Log.d("MainActivity", "name is" + name);
 </code></pre>
-<h4 id="鼠标操作"><a href="#鼠标操作" class="headerlink" title="鼠标操作"></a>鼠标操作</h4><pre class=" language-C语言"><code class="language-C语言">while(1){
-    if (MouseHit()) {
-        // cleardevice();
-        // 定义按键变量
-        MOUSEMSG msg = GetMouseMsg();
-
-        // 记录鼠标位置
-        // printf("坐标（%d, %d）", msg.x, msg.y);
-
-        // 判断鼠标点击位置 
-        if (msg.x > 200 && msg.y > 50 && msg.x < 800 && msg.y < 100) {
-            printf("Hello easyx\n");
-            printf("坐标（%d, %d）\n", msg.x, msg.y);
-        }
-        switch (msg.uMsg) {
-        case WM_LBUTTONDOWN:
-            outtextxy(400, 400, "鼠标左键按下");
-            break;
-        case WM_RBUTTONDOWN:
-            outtextxy(400, 400, "鼠标右键按下");
-            break;
-        }
-    }
+<h2 id="二、SQLite数据库储存"><a href="#二、SQLite数据库储存" class="headerlink" title="二、SQLite数据库储存"></a>二、SQLite数据库储存</h2><ul>
+<li><p>1.创建数据库<br>为更方便的管理数据库，专门提供了一个SQLiteOpenHelper帮助类，借助这个类就可以简单地对数据库进行创建和升级。<br>SQLite是一个抽象类，所以必须创建一个帮助类去继承它。SQLiteHelper中有两个抽象方法，分别是onCreate()和onUpgrade()，我们必须在帮助类中重写这两个方法，在这两个方法中去实现创建、升级数据库的逻辑。<br>同时SQLiteOpenHelper还有两个非常重要的实例方法：getReadableDatabase()和getWritableDatabase()，区别在于当数据库不可写入时，Readable只是只读方式打开，而Writable会出现异常。<br>SQLiteOpenHelper中有两个构造方法可供重写，一边使用参数较少的那个构造方法，这个方法接受四个参数：第一个是Context，必须由他才能对数据库进行操作。第二个是数据库名，创建数据库时使用的就是这里指定的名称。第三个参数允许我们在查询数据时返回一个自定义的Cursor，一般传入null。第四个参数便是当前数据库的版本号，可用于对数据库进行升级操作。构造出SQLiteOpenHelper的实例后，就可以调用getReadableDatabase()或getWritableDatabase()方法创建数据库了，数据库文件会存放在/data/data/&lt;包名&gt;/database/目录下，此时，重写的onCreate()方法会得到执行。<br>继承自SQLiteOpenHelper的帮助类MyDatabaseHelper举例</p>
+<pre class=" language-Java"><code class="language-Java">  public class MydatabaseHelper extends SQLiteOpenHelper {
+  public static final String CREATE_BOOK = "create table Book("
+          + "id integer primary key autoincrement, "
+          + "author text, "
+          + "price real, "
+          + "pages integer, "
+          + "name text) ";
+  private Context mContext;
+  public MydatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
+      super(context, name, factory, version);
+      mContext = context;
+  }
+  @Override
+  public void onCreate(SQLiteDatabase db){
+      db.execSQL(CREATE_BOOK);
+      db.execSQL(CREATE_CATEGORY);
+      Toast.makeText(mContext, "Create succeeded", Toast.LENGTH_SHORT).show();
+  }
+  @Override
+  public void onUpgrade(SQLiteDatabase db, int oldversion, int newversion){
+  }
 }
 </code></pre>
+</li>
+<li><p>2.升级数据库<br>一改表，二改版本号</p>
+<pre class=" language-Java"><code class="language-Java">  @Override
+  public void onUpgrade(SQLiteDatabase db, int oldversion, int newversion){
+      db.execSQL("drop table if exists Book");
+      db.execSQL("drop table if exists Category");
+      onCreate(db);
+  }
+</code></pre>
+</li>
+<li><p>3.添加数据<br>SQLiteDatabase 提供了一个insert()方法，专门用于添加数据，接受三个参数：第一个参数是表名，第二个用于在未指定添加数据的情况下默认赋值为null，我们直接传入null，第三个是ContentValues对象，他提供了一系列put()方法重载用于向ContentValues中添加数据。</p>
+<pre class=" language-Java"><code class="language-Java">SQLiteDatabase db = dphelper.getWritableDatabase();
+ContentValues values = new ContentValues();
+values.put("name", "The Da Vinci Code");
+values.put("author", "Dan Brown");
+values.put("pages", 454);
+values.put("price", 16.96);
+db.insert("Book", null, values);
+values.clear();
+</code></pre>
+</li>
+<li><p>4.更新数据<br>SQLiteDatabase 提供了一个update()方法，接收四个参数：第一个是表名，第二个是ContentValues对象，第三四个用于约束更新莫一行或某几行中的数据，不指定默认所有行。</p>
+<pre class=" language-Java"><code class="language-Java">SQLiteDatabase db = dphelper.getWritableDatabase();
+ContentValues values = new ContentValues();
+values.put("price", 10.99);
+db.update("Book", values, "name = ?", new String[]{"The Da Vinci Code"});
+</code></pre>
+</li>
+<li><p>5.删除数据<br>SQLiteDatabase 提供了一个delete()方法，专门用于删除数据，接收三个参数：第一个参数是表名，第二三个参数用于约束删除某一行或某几行数据。</p>
+<pre class=" language-Java"><code class="language-Java">SQLiteDatabase db = dphelper.getWritableDatabase();
+db.delete("Book", "Pages > ?", new String[] {"500"});
+</code></pre>
+</li>
+<li><p>6.查询数据<br>数据库的关键“查”，很复杂，这里简单介绍。<br>SQLiteDatabase 提供了一个quety()方法用于对数据进行查询，最短需要七个参数：第一个参数仍然是表名，第二个参数用于指定去查询哪几列，第三第四行用于约束查询某一行或某几行的数据，第五个参数用于指定需要去group by的列，不指定则表示不对结果进行 group by 的操作，第六个参数用于对group by 之后的数据进行进一步的过滤，第七个参数用于指定查询结果的排序方式。</p>
+<h2 id="三、LitePal-——-第一个开源库"><a href="#三、LitePal-——-第一个开源库" class="headerlink" title="三、LitePal —— 第一个开源库"></a>三、LitePal —— 第一个开源库</h2></li>
+<li><p>1.配置LitePal<br>编辑app/build.gradle文件，在dependencies闭包中添加</p>
+<pre class=" language-Gradle"><code class="language-Gradle">  implementation 'org.litepal.guolindev:core:3.2.3';
+</code></pre>
+<p>由于jcenter被弃用最新版AndroidStudio不从jcenter引入以来导致无法导入LitePal。需要在/settings.gradle加入</p>
+<pre class=" language-Gradle"><code class="language-Gradle">  jcenter()
+  maven { url 'https://jitpack.io' }
+</code></pre>
+<p>接下来需要配置litepal.xml文件。<br>在main目录下创建爱你assets目录，新建文件litepal.xml</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>litepal</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dbname</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>BookStore<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dbname</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>list</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>list</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>litepal</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><dbname>用于指定数据库名，<version>用于指定数据库版本号，<list>用于指定所有的映射模型。<br>然后再修改AndroidMainfest.xml中的代码在<application></application>代码块中加入</list></version></dbname></p>
+<pre class=" language-xml"><code class="language-xml">android:name="org.litepal.LitePalApplication"
+</code></pre>
+</li>
+<li><p>2.创建和升级数据库<br>创建一个Book类</p>
+<pre class=" language-Java"><code class="language-Java">public class Book {
+  private int id;
+  private String author;
+  private double price;
+  private int pages;
+  private String name;
+  private String press;
+  public int getId(){
+      return id;
+  }
+  public void setId(int id){
+      this.id = id;
+  }
+  public String getAuthor(){
+      return author;
+  }
+  public void getAuthor(String author){
+      this.author = author;
+  }
+  public double getPrice(){
+      return price;
+  }
+  public void setPrice(double price){
+      this.price = price;
+  }
+  public int getPages(){
+      return pages;
+  }
+  public void setPages(int pages){
+      this.pages = pages;
+  }
+  public String setName(){
+      return name;
+  }
+  public void setName(String name){
+      this.name = name;
+  }
+  public String getPress(){
+      return press;
+  }
+  public void setPress(String press){
+      this.press = press;
+  }
+}
+</code></pre>
+<p>然后在litepal.xml中修改</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8" ?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>litepal</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dbname</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>BookStore<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dbname</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>list</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mapping</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.example.litepaltest.Book<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mapping</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>list</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>litepal</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>最后在MainActivity中添加按钮功能</p>
+<pre class=" language-Java"><code class="language-Java">      Button createDatabase = (Button) findViewById(R.id.create_database);
+      createDatabase.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              Connector.getDatabase();
+          }
+      });
+</code></pre>
+<p>数据库的升级同样很简单，添加一张Category表，同样新建Category类</p>
+<pre class=" language-Java"><code class="language-Java">public class Category {
+  private int id;
+  private String categoryName;
+  private int categoryCode;
+  public void setId(int id){
+      this.id = id;
+  }
+  public void setCategoryName(String categoryName){
+      this.categoryName = categoryName;
+  }
+  public void setCategoryCode(int categoryCode){
+      this.categoryCode = categoryCode;
+  }
+}
+</code></pre>
+<p>在litepal.xml添加<mapping></mapping>标签并修改版本号即可。</p>
+</li>
+<li><p>3.添加数据<br>Book类添加继承LitepalSupport，就可以在MainActivity中添加数据了</p>
+<pre class=" language-Java"><code class="language-Java">      Button addData = (Button) findViewById(R.id.add_data);
+      addData.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              Book book = new Book();
+              book.setName("The Da Vinci Code");
+              book.setAuthor("DanBrown");
+              book.setPages(454);
+              book.setPrice(16.96);
+              book.setPress("Unknown");
+              book.save();
+          }
+      });
+</code></pre>
+</li>
+<li><p>4.更新数据<br>使用updateAll()方法，参数是限制条件。</p>
+<pre class=" language-Java"><code class="language-Java">Book book = new Book();
+book.setPrice(14.95);
+book.setPress("Anchor");
+book.updateAll("name=? and author=?", "The Lost Symbol", "Dan Brown");
+</code></pre>
+<p>此外，在重置为默认值时，不可直接调用set方法设置默认值0或者null等，可使用setToDefault()方法，参数是限制条件。</p>
+<pre class=" language-Java"><code class="language-Java">book.setToDefault("Pages");
+book.updateAll();
+</code></pre>
+</li>
+<li><p>5.删除数据<br>使用deleteAll()方法删除数据，第一个参数传入类名.class，其余是约束条件。</p>
+<pre class=" language-Java"><code class="language-Java">LitePal.deleteAll(Book.class, 约束条件);
+</code></pre>
+</li>
+<li><p>6.查询数据</p>
+<pre class=" language-Java"><code class="language-Java">List<Book> books = LitePal.findAll(Book.class); //查询所有
+Book firstBook = LitePal.findFirst(Book.class);//查询第一条数据
+Book lastBook = LitePal.findLast(Book.class); //查询最后一条数据
+//select()方法用于指定查询哪几列，对应SQL当中的select关键字，比如只查询name和author这两列数据
+List<Book> books = LitePal.select("name", "author").find(Book.class);
+//where()方法用于指定查询约束条件，对应SQL中where关键字，比如只查询大于400的数据
+List<Book> books = LitePal.where("Pages>?","400").find(Book.class);
+//order()方法用于指定结果排序方式对应SQL中的order by 关键字，比如将查询结果按书价由高到低排序
+List<Book> books = LitePal.order("price desc").find(Book.class);
+//limit()方法用于指定查询结果的数量，比如只查询前三条数据
+List<Book> books = LitePal.limit(3).find(Book.class);
+//offset()方法用于指定查询结果的偏移量，比如查询变种第2、3、4条数据
+List<Book> books = LitePal.limit(3).offset(1).find(Book.class);
+</code></pre>
+</li>
+</ul>
 
                 
             </div>
@@ -605,7 +722,7 @@ putimage(0, 0, &img1);
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/05/05/easyx/">http://example.com/2022/05/05/easyx/</a>
+                    <a href="http://example.com/2022/08/21/android-database/">http://example.com/2022/08/21/android-database/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -642,15 +759,7 @@ putimage(0, 0, &img1);
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Easyx/">
-                                    <span class="chip bg-color">Easyx</span>
-                                </a>
-                            
-                                <a href="/tags/c/">
-                                    <span class="chip bg-color">c</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -822,9 +931,48 @@ putimage(0, 0, &img1);
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/08/21/android-database/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Android_Database">
+                        
+                        <span class="card-title">Android_Database</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            WangFei
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2022/05/13/an-zhuo/">
                     <div class="card-image">
@@ -842,45 +990,8 @@ putimage(0, 0, &img1);
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-13
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            WangFei
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/05/04/shuang-lian-biao/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="双链表">
-                        
-                        <span class="card-title">双链表</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-13
                             </span>
                         <span class="publish-author">
                             
@@ -889,14 +1000,6 @@ putimage(0, 0, &img1);
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Data-structure/">
-                        <span class="chip bg-color">Data structure</span>
-                    </a>
-                    
                 </div>
                 
             </div>
